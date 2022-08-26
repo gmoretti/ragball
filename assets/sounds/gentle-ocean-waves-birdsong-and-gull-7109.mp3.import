@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/gentle-ocean-waves-birdsong-and-gull-7109.mp3-76e96bd86e38dade12b3eff6500dd868.mp3str"
+
+[deps]
+
+source_file="res://assets/sounds/gentle-ocean-waves-birdsong-and-gull-7109.mp3"
+dest_files=[ "res://.import/gentle-ocean-waves-birdsong-and-gull-7109.mp3-76e96bd86e38dade12b3eff6500dd868.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

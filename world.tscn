@@ -1,0 +1,355 @@
+[gd_scene load_steps=20 format=2]
+
+[ext_resource path="res://background.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Ragdoll.tscn" type="PackedScene" id=2]
+[ext_resource path="res://ball.tscn" type="PackedScene" id=3]
+[ext_resource path="res://ranking.gd" type="Script" id=4]
+[ext_resource path="res://world.gd" type="Script" id=5]
+[ext_resource path="res://menu.tscn" type="PackedScene" id=6]
+[ext_resource path="res://theme.tres" type="Theme" id=7]
+[ext_resource path="res://assets/sounds/Pickup_Coin2.wav" type="AudioStream" id=8]
+[ext_resource path="res://waves_sound.tscn" type="PackedScene" id=9]
+[ext_resource path="res://assets/pole/basket_#path1551.png" type="Texture" id=10]
+[ext_resource path="res://assets/pole/basket_#path10436.png" type="Texture" id=11]
+[ext_resource path="res://assets/pole/basket_#rect10382.png" type="Texture" id=12]
+
+[sub_resource type="CapsuleShape2D" id=5]
+radius = 19.0
+height = 160.0
+
+[sub_resource type="RectangleShape2D" id=20]
+extents = Vector2( 85, 34.5 )
+
+[sub_resource type="CanvasItemMaterial" id=21]
+blend_mode = 2
+
+[sub_resource type="CircleShape2D" id=9]
+radius = 0.64402
+
+[sub_resource type="RectangleShape2D" id=10]
+extents = Vector2( 9.5, 137.5 )
+
+[sub_resource type="Animation" id=22]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("nPoints:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 133, 5 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("nPoints:rect_rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("nPoints:rect_size")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 40, 51 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("nPoints:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("nPoints:rect_scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1.30256, 1.29305 ) ]
+}
+
+[sub_resource type="Animation" id=23]
+resource_name = "scoreGoal"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/path = NodePath("nPoints:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 146, 11 ), Vector2( 146, 11 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("nPoints:rect_rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.3, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 0.0, 0.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("nPoints:rect_size")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.6 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 100, 51 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("nPoints:modulate")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.3, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 0.964706, 0.933333, 0.14902, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("nPoints:rect_scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.3, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1.30256, 1.29305 ), Vector2( 3.42256, 3.39758 ), Vector2( 1.30256, 1.29305 ) ]
+}
+
+[node name="world" type="Node2D"]
+script = ExtResource( 5 )
+
+[node name="ball" parent="." groups=["ball"] instance=ExtResource( 3 )]
+position = Vector2( 506, 90 )
+
+[node name="Ragdoll" parent="." instance=ExtResource( 2 )]
+position = Vector2( 209, 478 )
+z_index = -2
+
+[node name="goalArea" type="Area2D" parent="."]
+position = Vector2( -210, -35 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="goalArea"]
+position = Vector2( 1073, 225 )
+shape = SubResource( 5 )
+
+[node name="ball dissapearArea" type="Area2D" parent="."]
+position = Vector2( -210, -35 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ball dissapearArea"]
+position = Vector2( 1147, 551 )
+shape = SubResource( 20 )
+
+[node name="Panel" type="Panel" parent="."]
+material = SubResource( 21 )
+margin_right = 40.0
+margin_bottom = 40.0
+rect_scale = Vector2( 25.64, 1.64 )
+
+[node name="pointsLabel" type="Label" parent="."]
+margin_left = 6.0
+margin_top = 6.0
+margin_right = 104.0
+margin_bottom = 57.0
+rect_scale = Vector2( 1.20212, 1.20212 )
+theme = ExtResource( 7 )
+text = "Points:"
+
+[node name="nPoints" type="Label" parent="."]
+margin_left = 133.0
+margin_top = 5.0
+margin_right = 173.0
+margin_bottom = 56.0
+rect_scale = Vector2( 1.30256, 1.29305 )
+theme = ExtResource( 7 )
+
+[node name="highScoreLabel" type="Label" parent="."]
+margin_left = 274.0
+margin_top = 7.0
+margin_right = 426.0
+margin_bottom = 58.0
+rect_scale = Vector2( 1.18716, 1.18716 )
+theme = ExtResource( 7 )
+text = "Top Score:"
+
+[node name="hightScore" type="Label" parent="."]
+margin_left = 481.0
+margin_top = 2.0
+margin_right = 521.0
+margin_bottom = 53.0
+rect_scale = Vector2( 1.26971, 1.26045 )
+theme = ExtResource( 7 )
+
+[node name="menu" parent="." instance=ExtResource( 6 )]
+visible = false
+
+[node name="background" parent="." instance=ExtResource( 1 )]
+position = Vector2( 2, 0 )
+
+[node name="basket" type="Node2D" parent="."]
+
+[node name="pole" type="Sprite" parent="basket"]
+position = Vector2( 835, 421 )
+texture = ExtResource( 12 )
+
+[node name="basket_left" type="Sprite" parent="basket"]
+position = Vector2( 798, 189 )
+z_index = -2
+texture = ExtResource( 10 )
+
+[node name="basket_right2" type="Sprite" parent="basket"]
+position = Vector2( 830, 189 )
+texture = ExtResource( 11 )
+
+[node name="pole_top_bottom_colission_basket" type="StaticBody2D" parent="basket"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="basket/pole_top_bottom_colission_basket"]
+position = Vector2( 833, 86 )
+scale = Vector2( 18.6329, 16.1515 )
+shape = SubResource( 9 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="basket/pole_top_bottom_colission_basket"]
+position = Vector2( 833, 291 )
+scale = Vector2( 18.6329, 16.1515 )
+shape = SubResource( 9 )
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="basket/pole_top_bottom_colission_basket"]
+position = Vector2( 835.5, 440.5 )
+shape = SubResource( 10 )
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 60.0
+
+[node name="time_left_label" type="Label" parent="."]
+margin_left = 808.0
+margin_top = 4.0
+margin_right = 885.0
+margin_bottom = 55.0
+rect_scale = Vector2( 1.52431, 1.52431 )
+theme = ExtResource( 7 )
+text = "Time: "
+
+[node name="time_left" type="Label" parent="."]
+margin_left = 930.0
+margin_top = 3.0
+margin_right = 970.0
+margin_bottom = 54.0
+rect_scale = Vector2( 1.23062, 1.23062 )
+theme = ExtResource( 7 )
+
+[node name="ranking" type="Node" parent="."]
+pause_mode = 2
+script = ExtResource( 4 )
+
+[node name="Panel" type="Panel" parent="ranking"]
+visible = false
+margin_left = 329.0
+margin_top = 77.0
+margin_right = 369.0
+margin_bottom = 117.0
+rect_scale = Vector2( 10.4595, 10.4595 )
+theme = ExtResource( 7 )
+
+[node name="Timeout" type="Label" parent="ranking/Panel"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -12.2558
+margin_top = 1.81653
+margin_right = 40.7442
+margin_bottom = 15.8165
+rect_scale = Vector2( 0.186765, 0.186765 )
+text = "Timeout"
+align = 1
+
+[node name="Score_label" type="Label" parent="ranking/Panel"]
+margin_left = 1.81653
+margin_top = 16.3488
+margin_right = 41.8165
+margin_bottom = 30.3488
+rect_scale = Vector2( 0.144354, 0.144354 )
+text = "Score:"
+
+[node name="score" type="Label" parent="ranking/Panel"]
+margin_left = 21.4159
+margin_top = 16.2532
+margin_right = 61.4159
+margin_bottom = 30.2532
+rect_scale = Vector2( 0.131392, 0.131392 )
+
+[node name="Reply" type="Button" parent="ranking/Panel"]
+margin_left = 1.81653
+margin_top = 31.5503
+margin_right = 48.8165
+margin_bottom = 51.5503
+rect_scale = Vector2( 0.114813, 0.114813 )
+text = "Replay"
+
+[node name="Menu" type="Button" parent="ranking/Panel"]
+margin_left = 25.049
+margin_top = 31.5503
+margin_right = 72.049
+margin_bottom = 51.5503
+rect_scale = Vector2( 0.123475, 0.123475 )
+text = "Menu"
+
+[node name="ScoreAnimation" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 22 )
+anims/scoreGoal = SubResource( 23 )
+
+[node name="ramp" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="ramp"]
+scale = Vector2( 31.2626, 38.3049 )
+build_mode = 1
+polygon = PoolVector2Array( 24.5341, 15.0894, 26.4854, 13.6014, 26.5493, 15.5071 )
+
+[node name="PointsSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 8 )
+
+[node name="waves_sound" parent="." instance=ExtResource( 9 )]
+
+[connection signal="body_entered" from="goalArea" to="." method="_on_Area2D_body_entered"]
+[connection signal="body_entered" from="ball dissapearArea" to="." method="_on_ball_dissapearArea_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[connection signal="pressed" from="ranking/Panel/Reply" to="ranking" method="_on_Reply_pressed"]
+[connection signal="pressed" from="ranking/Panel/Menu" to="ranking" method="_on_Menu_pressed"]

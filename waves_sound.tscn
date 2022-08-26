@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://assets/sounds/gentle-ocean-waves-birdsong-and-gull-7109.mp3" type="AudioStream" id=1]
+
+[node name="waves_sound" type="AudioStreamPlayer"]
+stream = ExtResource( 1 )
